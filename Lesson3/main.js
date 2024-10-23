@@ -2,8 +2,8 @@
 let gold = 100
 
 // Попытка построить башню
-let buildingName = 'Tower'
-let costGold = 30
+// let buildingName = 'Tower'
+// let costGold = 30
 
 // // проверяем, хватает ли нам золота для строительства
 // if (gold >= costGold) {
@@ -51,3 +51,32 @@ function createBuilding(buildingName, costGold) {
 // Вызов функции
 createBuilding('Tower', 30) // Строим башню, золота хватает
 createBuilding('Blacksmith', 140) // Строить кузницу, золота не хватает
+
+// // Функция для увеличения ресурсов
+// function increaseResource(currentAmount, increment) {
+//     return currentAmount + increment
+// }
+
+// // Увеличение золота
+// gold = increaseResource(gold, 50)
+// console.log(`New amount of gold: ${gold}`)
+
+// function increaseResource(currentAmount, increment) {
+//     return currentAmount + increment;
+// }
+
+//   // Вызов функции без второго параметра
+// gold = increaseResource(gold)
+// console.log('New amount of gold: ' + gold) // New amount of gold: NaN
+
+function increaseResource(currentAmount, increment = 10) {
+    return currentAmount + increment
+}
+
+// Вызов функции без второго параметра
+gold = increaseResource(gold)
+console.log('New amount of gold: ' + gold) // New amount of gold: 80
+
+// Вызов функции с параметром
+gold = increaseResource(gold, 100)
+console.log('New amount of gold: ' + gold) // New amount of gold: 180
