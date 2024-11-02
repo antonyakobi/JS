@@ -8,8 +8,18 @@
 // РЕШЕНИЕ 1 ЗАДАЧИ:
 
 function reverseArray(array) {
-    
+    const result = []
+    for (let i = 0; i < array.length; i++) {
+        result [array.length - 1 - i] = array [i];
+    }
+    //  ИЛИ
+    // for (let i = array.length - 1; i >= 0; i--) {
+    //     result [result.length] = array [i];
+    // }
+    return result
 }
+console.log(reverseArray([1, 2, 3, 4, 5]));
+
 
 // 2. УСЛОВИЕ 2 ЗАДАЧИ (Функция removeElement):
 // Напишите функцию removeElement, которая принимает массив и элемент, а затем возвращает новый массив без указанного элемента. Для перебора элементов используйте цикл for.
