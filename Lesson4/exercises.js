@@ -31,6 +31,14 @@ console.log(reverseArray([1, 2, 3, 4, 5]));
 
 // РЕШЕНИЕ 2 ЗАДАЧИ:
 
-function removeElement(array) {
-    
+function removeElement(array, el) {
+    const result = []
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] !== el) {
+            result [result.length] = array[i]
+        }
+    }
+    return result
 }
+
+console.log(removeElement([1,2,3], 3));
