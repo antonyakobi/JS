@@ -149,6 +149,56 @@ checkTruthyFalsy('Hello')
 // const slicedArr = array.slice(1, 4) //[2,3,4]
 // console.log(slicedArr);
 
+// const fruits = ['Apple', 'Banana', 'Cherry', 'Date', 'Fig']
+// Через slice
+// const res = fruits.slice(1, 3)
+// console.log(res);
+
+// Через цикл фор (подобие Слайс)
+// const res = (fruits, start, end) => {
+//     const resArr = []
+//     for (let i = start; i < end; i++) {
+//         resArr.push(fruits[i])
+//     }
+//     return resArr
+// }
+// console.log(res(fruits, 1, 3));
+
+// 2ой способ. 
+// const res = (fruits, start, end) => {
+//     const arr = []
+//     fruits.map((element, index) => {
+//         if (index >= start && index < end) {
+//             arr.push(element)
+//         }
+//     })
+//     return arr
+// }
+// console.log(res(fruits, 1, 3));
+
+// Метод reduce просто.
+
+// const arrr = [1, 2, 3, 4]
+// const ress = (arrr) => {
+//     return arrr.reduce((el, acc) => {
+//         return acc += el
+//     }, 0)
+// }
+// console.log(ress(arrr));
+
+// 3ий способ через reduse
+
+// const res = (fruits, start, end) => {
+//     return fruits.reduce((acc, el, i) => {
+//         if (i >= start && i < end) {
+//             acc.push(el)
+//         }
+//         return acc
+//     }, [])
+// }
+// console.log(res(fruits, 1, 3));
+
+
 // splice
 // •    Назначение: Изменяет содержимое массива, удаляя или добавляя элементы.
 // •    Изменяет оригинальный массив: Да, splice изменяет исходный массив.
@@ -160,6 +210,39 @@ checkTruthyFalsy('Hello')
 // array.splice(1, 2, 'a', 'b', )
 // console.log(array);
 
+const fruits = ['Apple', 'Banana', 'Cherry', 'Date', 'Fig']
+// Через обычный splice
+// fruits.splice(1, 2, 'new', 'new')
+// console.log(fruits);
+
+// Полифил через reduse 
+// const res = (fruits, start, count, changeArr) => {
+//     return fruits.reduce((acc, el, i) => {
+//         if (i >= start && i < count + start) {
+//             acc.push(changeArr[i - start])
+//         } else {
+//             acc.push(el)
+//         }
+//         return acc
+//     }, [])
+// }
+// console.log(res(fruits, 1, 2, ['new1', 'new2']));
+
+// Полифил через for 
+const res = (fruits, start, count, changeArr) => {
+    const newArr = []
+    for (let i = 0; i < fruits.length; i++) {
+        if (i >= start && i < count + start) {
+            newArr.push(changeArr[i - start])
+        } else {
+            newArr.push(fruits[i])
+        }
+    }
+    return newArr
+}
+
+console.log(res(fruits, 1, 2, ['new1', 'new2']));
+
 // Напишите функцию findCharacterIndex, которая принимает строку и символ, и возвращает индекс первого вхождения этого симовола в строку. Если символ не найден, функция должна возвращать -1
 
 const findCharacterIndex = (str, char) => {
@@ -168,5 +251,15 @@ const findCharacterIndex = (str, char) => {
 
 console.log(findCharacterIndex("holle", "e"));
 console.log(findCharacterIndex("hrllo", "a"));
+
+// Создайте функцию containSubstring, которая принимает строку и подстроку, и возвращает true, если подстрока найдена в строке, и false в противном случае. 
+
+const containSubstring = (str, key) => {
+    return str.indexOf(key) !== -1
+}
+
+console.log(containSubstring("hello world", "world"));
+console.log(containSubstring("hello world", "planet"));
+
 
 
