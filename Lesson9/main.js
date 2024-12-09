@@ -35,3 +35,31 @@ const favoriteBooks = [
     genre: "Fantasy",
   },
 ];
+
+// Функция, которая принимает массив книг и выводит в консоль их авторов.
+
+function printBookAuthors(books) {
+  for (let i = 0; i < books.length; i++) {
+    const book = books[i]
+    console.log(book.author)
+  }
+}
+printBookAuthors(favoriteBooks)
+
+// Функция в выражении:
+
+const printBookAuthors = function(books) {
+  for (let i = 0; i < books.length; i++) {
+    const book = books[i]
+    console.log(book.author)
+  }
+}
+
+// Стрелочная функция: 
+
+const printBookAuthors = (books) => {
+  for (let i = 0; i < books.length; i++) {
+    const book = books[i]
+    console.log(book.author)
+  }
+}
